@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Gestión de Envíos</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background: white;
+  width: 800px;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+}
+
+.line {
+  height: 3px;
+  background: #0b5d2a;
+  margin: 15px 0 25px;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #0b5d2a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #0b5d2a;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+.actions a {
+  margin-right: 10px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal:target {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-content li {
+  margin: 10px 0;
+}
+
+.close {
+  display: inline-block;
+  margin-top: 15px;
+  background: #0b5d2a;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+  <h2>Gestión de Envíos</h2>
+  <div class="line"></div>
+
+  <div class="filters">
+    <div class="group">
+      <label>Ciudad</label>
+      <select>
+        <option>Lima</option>
+        <option>Trujillo</option>
+      </select>
+    </div>
+
+    <div class="group">
+      <label>Tipo de envío</label>
+      <select>
+        <option>Aéreo</option>
+        <option>Terrestre</option>
+      </select>
+    </div>
+
+    <button>Consultar</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nro de Pedido</th>
+        <th>Ciudad destino</th>
+        <th>Tipo de envío</th>
+        <th>Costo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>PEDD001</td>
+        <td>Lima</td>
+        <td>Aéreo</td>
+        <td>s/500</td>
+        <td class="actions">
+          <a href="#">✏️</a>
+          <a href="#">🗑️</a>
+          <a href="#">👤</a>
+  
+          <a href="#modal">🔍</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>PEDD002</td>
+        <td>Trujillo</td>
+        <td>Terrestre</td>
+        <td>s/1000</td>
+        <td class="actions">
+          <a href="#">✏️</a>
+          <a href="#">🗑️</a>
+          <a href="#">👤</a>
+          <a href="#modal">🔍</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    ⬅️ 1 de 1 ➡️
+  </div>
+</div>
+
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h3>Estado del pedido</h3>
+
+    <ul>
+      <li>📦 Pedido despachado</li>
+      <li>🚚 Pedido en tránsito</li>
+      <li>🏠 En domicilio</li>
+      <li>✅ Entregado</li>
+    </ul>
+
+    <a href="#" class="close">Cerrar</a>
+  </div>
+</div>
+
+</body>
+</html>
